@@ -11,7 +11,7 @@ public class Status
 
     public void Init()
     {
-        Health = 100;
+        Health = 3100;
         Armor = 20;
         MagicResist = 20;
     }
