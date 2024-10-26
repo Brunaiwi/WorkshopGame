@@ -29,11 +29,14 @@ public class AIController : MonoBehaviour
         AIStatesScript = GetComponent<AIStates>();
         AIMovementScript = GetComponent<AIMovement>();
         AICombatScript = GetComponent<AICombat>();
+      //  AIStatesScript = GetComponent<CharacterStatusManager>();
+      //  AIDamageHandlerScript = GetComponent<DamageHandler>();
 
         brain = pBrain;
 
         AICombatScript.Init(brain);
         AIMovementScript.Init(brain);
+     //   AIStatesScript.InitStatus(brain.Status);
 
         InstantiateGraphics();
         FindPlayerReference();
@@ -82,7 +85,8 @@ public class AIController : MonoBehaviour
 
     void InstantiateGraphics()
     {
-        Instantiate(brain.GFX, GFXTransform);
+       var gft = Instantiate(brain.GFX, GFXTransform);
+        
     }
 
     void FindPlayerReference()

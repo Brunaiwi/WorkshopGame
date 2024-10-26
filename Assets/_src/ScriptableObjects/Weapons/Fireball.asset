@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19a57f562451eca448818b45b93ae004, type: 3}
-  m_Name: Pistola
+  m_Name: Fireball
   m_EditorClassIdentifier: 
-  Damage: 100
-  Range: 15
-  AttackSpeed: 2
-  CurrentCooldown: 2
-  ProjectileSpeed: 1
-  type: 2
-  proj: {fileID: 7511624923496061859, guid: a66401554aa918346a8d1a608c449294, type: 3}
+  Damage: 0
+  Range: 0
+  AttackSpeed: 0
+  CurrentCooldown: 0
+  ProjectileSpeed: 0
+  type: 0
+  proj: {fileID: 0}

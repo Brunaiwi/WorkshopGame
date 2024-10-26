@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponScriptable : ScriptableObject
 {
-    public float Damage;
+    public int Damage;
     public float Range;
     public float AttackSpeed;
     public float CurrentCooldown;

@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetProjectile : Projectile
+public class RoamingProjectile : Projectile
 {
-    public Vector3 targetPos;
-    public Vector3 targetDir;
-
+    public Transform target;
     public override void Awake()
     {
         base.Awake();
@@ -16,11 +14,7 @@ public class TargetProjectile : Projectile
     {
         base.Init();
 
-        targetPos = pTarget.position;
-
-        targetDir = (targetPos - transform.position).normalized;
-
-        transform.forward = targetDir;
+        target = pTarget;
 
         isReady = true;
 
@@ -30,10 +24,15 @@ public class TargetProjectile : Projectile
     public override void Update()
     {
         if (isReady == false) return;
+        if (target == null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 
         base.Update();
 
-        transform.position += targetDir * Time.deltaTime * brain.ProjectileSpeed;
+        transform.position += Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * brain.ProjectileSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
